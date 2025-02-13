@@ -7,6 +7,9 @@
 input{
   min-width: 165px;
 }
+label{
+  
+}
 .info{
   display:flex;
   flex-direction: column;
@@ -15,12 +18,13 @@ input{
 .info h3{
   align-self: center;
 }
-.info label{
-  padding-right: 20px;
+.info input{
+  margin-left: 20px;
 }
 textarea{
   min-width: 165px;
-  min-height: 130px
+  min-height: 130px;
+  margin-left: 20px;
 }
 .logo {
   height: 6em;
