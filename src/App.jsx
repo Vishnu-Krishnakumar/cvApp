@@ -9,8 +9,9 @@ import { Education } from './components/education'
 function App() {
   const [personal, setPersonal] = useState({name:'',email:'',phoneNumber:'',address:''});
   const [education, setEducation] = useState({schoolName:'',degreeName:'',startDate:'',endDate:''})
-  const [experience,setExperience] = useState({companyName:'',jobTitle:'',statDate:'',endDate:''});
-  let [resumes, setResume] = useState ([])
+  const [experience,setExperience] = useState({companyName:'Dr.Purohit medical office',jobTitle:'MedicalScribe',startDate:'01-01-2014',endDate:'01-01-2018',responsibilities:'Wrote up patients charts'});
+  let [resumeEducation, setResume] = useState ([])
+  let [resumeExperience, setResumeEx] = useState([])
   let experiences = [];
   let allEducation = [];
   
@@ -32,11 +33,12 @@ function App() {
   function add(e){
     if(e.target.id === "addEd"){
       allEducation.push(education);
-      console.log(resumes);
-      setResume([...resumes, education] );
-      console.log(resumes);
+      setResume([...resumeEducation, education] );
     }
-    else experiences.push(experience);
+    else{
+      setResumeEx([...resumeExperience,experience])
+    }
+    
   }
 
   return (
@@ -69,10 +71,16 @@ function App() {
         <Section title = "Start Date" inputType = "date" idName = "startDate" changeFunction = {experienceHandler}/>
         <Section title = "End Date" inputType = "date" idName = "endDate" changeFunction = {experienceHandler}/>
         <Section title ="Responsibilities" inputType= "textArea" idName = "responsibilities" changeFunction = {experienceHandler}/>
+        <div>
+          <Button text ="Add" idName = "addExp" click = {add}></Button>
+          <Button text ="Delete" idName = "delete"></Button>
+          <Button text ="Cancel" idName = "cancel"></Button>
+        </div>
+        <Button text ="+ Experience" className = "addExperience"></Button>
       </div>
       </div>
       <div className ="resume">
-        <Resume cv = {{personal}} experience = {{experience}} education ={resumes}/>
+        <Resume cv = {{personal}} experience = {resumeExperience} education ={resumeEducation}/>
       </div>
     </div>
   )

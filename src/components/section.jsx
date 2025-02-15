@@ -5,7 +5,7 @@ export function Section({title, inputType,idName,changeFunction}){
         <div>
           <label >
             {title}
-            <textarea style={{verticalAlign:"top"}} name ="responsibilities"></textarea>
+            <textarea style={{verticalAlign:"top"}} id ="responsibilities" onChange ={changeFunction}></textarea>
           </label>
         </div>)
     }

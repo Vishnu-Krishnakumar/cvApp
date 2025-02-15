@@ -46,14 +46,27 @@ textarea{
   min-height: 130px;
   margin-left: 20px;
 }
-
-.resumeEducation{
-  display:flex;
+.body{
+  display: flex;
+  flex-direction: column;
+}
+#resumeEducation{
+  display: flex;
+  text-align: start;
+  
+  color: black;
+  margin: 20px;
+}
+#resumeEducation div{
+  margin-right:20px;
+}
+.resumeExperience{
+ 
   text-align: start;
   color: black;
   margin: 20px;
 }
-.resumeEducation div{
+.resumeExperience div{
   margin-right:20px;
 }
 .logo {
