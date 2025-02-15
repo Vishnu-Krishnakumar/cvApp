@@ -4,22 +4,41 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Section } from './components/section'
 import { Resume } from './components/resume'
+import { Button } from './components/button'
+import { Education } from './components/education'
 function App() {
   const [personal, setPersonal] = useState({name:'',email:'',phoneNumber:'',address:''});
   const [education, setEducation] = useState({schoolName:'',degreeName:'',startDate:'',endDate:''})
-  const [experience,setExperience] = useState({companyName:'',jobtitle:'',statDate:'',endDate:''});
+  const [experience,setExperience] = useState({companyName:'',jobTitle:'',statDate:'',endDate:''});
+  let [resumes, setResume] = useState ([])
+  let experiences = [];
+  let allEducation = [];
+  
   function personalHandler(e){
     let key = e.target.id;
     setPersonal({...personal,[key]:e.target.value})
   }
+  
   function educationHandler(e){
-    let key = e.taget.id;
+    let key = e.target.id;
     setEducation({...education,[key]:e.target.value})
   }
+  
   function experienceHandler(e){
     let key = e.target.id;
     setExperience({...experience,[key]:e.target.value});
   }
+  
+  function add(e){
+    if(e.target.id === "addEd"){
+      allEducation.push(education);
+      console.log(resumes);
+      setResume([...resumes, education] );
+      console.log(resumes);
+    }
+    else experiences.push(experience);
+  }
+
   return (
     <div className = "content">
       <div className = "info">
@@ -36,6 +55,12 @@ function App() {
         <Section title = "Title of Study" idName = "degreeName" changeFunction = {educationHandler}/>
         <Section title = "Start Date" inputType = "date" idName = "startDate" changeFunction = {educationHandler}/>
         <Section title = "End Date" inputType = "date"  idName = "endDate" changeFunction = {educationHandler}/>
+        <div>
+          <Button text ="Add" idName = "addEd" click = {add}></Button>
+          <Button text ="Delete" idName = "delete"></Button>
+          <Button text ="Cancel" idName = "cancel"></Button>
+        </div>
+        <Button text ="+ Education" className = "addEducation"></Button>
       </div>
       <div className ="info" id ="experienceInfo">
         <h3>Experience</h3>
@@ -47,7 +72,7 @@ function App() {
       </div>
       </div>
       <div className ="resume">
-        <Resume cv = {{personal}} education ={{education}} experience = {{experience}}/>
+        <Resume cv = {{personal}} experience = {{experience}} education ={resumes}/>
       </div>
     </div>
   )
