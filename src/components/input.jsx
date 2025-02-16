@@ -1,5 +1,5 @@
-export function Input({formType = "text", idName,changeFunction}){
+export function Input({formType = "text", idName,changeFunction,inputValue}){
     
-    return <input id = {idName} type = {formType} onChange ={changeFunction}></input>
+    return <input id = {idName} type = {formType} onChange ={changeFunction} value = {inputValue}></input>
     
   }

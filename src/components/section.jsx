@@ -1,5 +1,5 @@
 import { Input } from "./input"
-export function Section({title, inputType,idName,changeFunction}){
+export function Section({title, inputType,idName,changeFunction,value}){
     if(inputType === 'textArea'){
       return (
         <div>
@@ -12,6 +12,6 @@ export function Section({title, inputType,idName,changeFunction}){
     return <div>
               <label>
                 {title}
-                <Input formType={inputType} idName={idName} changeFunction={changeFunction}/></label>
+                <Input formType={inputType} idName={idName} changeFunction={changeFunction} inputValue={value}/></label>
            </div>
   }

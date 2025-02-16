@@ -37,7 +37,7 @@ export function Resume({cv,experience,education} ){
           <div>
             <div><b>{resumes.companyName}</b></div>
             <div>{resumes.jobTitle}</div>
-            <div>{resumes.responsibilities}</div>
+            <div id = "responsibilities">{resumes.responsibilities}</div>
           </div>
         </div>
       ))}
