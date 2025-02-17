@@ -1,4 +1,4 @@
 
 export function Button({text, idName, hide, click}){
-    return <button id = {idName} onClick={click}>{text}</button>
+    return <button className = {hide} id = {idName} onClick={click}>{text}</button>
 }

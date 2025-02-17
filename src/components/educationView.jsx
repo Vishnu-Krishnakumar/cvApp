@@ -1,9 +1,9 @@
 export function EducationView({school,click}){
   let index = 0;
   return (
-  <div>
+  <div class = "view">
     {school.map((resumes)=>(
-    <div id = {index++} onClick={click} >{resumes.schoolName}</div>
+    <div className = "edView"id = {index++} onClick={click} >{resumes.schoolName}</div>
     ))}
   </div>
 )

@@ -1,9 +1,9 @@
-export function ExperienceView({job,click}){
+export function ExperienceView({experiences,click}){
     let index = 0;
     return (
-    <div>
-      {job.map((resumes)=>(
-      <div id = {index++} onClick={click} >{resumes.companyName}</div>
+    <div class ="view">
+      {experiences.map((experience)=>(
+      <div className = "expView" id = {index++} onClick={click} >{experience.companyName}</div>
       ))}
     </div>
   )
